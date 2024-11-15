@@ -3,13 +3,13 @@ angular
   .controller("InterviewController", function ($scope) {
     $scope.questions = [
       "Welcome to this Interview. Please click next to proceed.",
-      "What is your greatest strength?",
       "Where do you see yourself in five years?",
       "What motivates you to do your best work?",
       "Can you describe a time when you overcame a challenge at work?",
       "What would you consider your biggest achievement?",
       "How do you prioritize tasks when you're juggling multiple responsibilities?",
       "How do you handle criticism?",
+      "What is your greatest strength?",
       "What do you enjoy most about working in this industry?",
       "Why should we hire you for this role?",
       "Tell me about a time when you worked on a team project. How did you contribute?",
