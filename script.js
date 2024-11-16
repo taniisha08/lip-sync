@@ -240,12 +240,30 @@ angular
       };
     };
 
-    $scope.nextQuestion = function speak() {
-      $scope.currentQuestionIndex =
-        ($scope.currentQuestionIndex + 1) % $scope.questions.length;
-      $scope.currentQuestion = $scope.questions[$scope.currentQuestionIndex];
-      $scope.speakQuestion($scope.currentQuestion);
-    };
+    // $scope.nextQuestion = function speak() {
+    //   $scope.currentQuestionIndex =
+    //     ($scope.currentQuestionIndex + 1) % $scope.questions.length;
+    //   $scope.currentQuestion = $scope.questions[$scope.currentQuestionIndex];
+    //   $scope.speakQuestion($scope.currentQuestion);
+    // };
+
+    $scope.nextQuestion = function () {
+        // Generate a random index that is different from the current index
+        let randomIndex;
+        do {
+          randomIndex = Math.floor(Math.random() * $scope.questions.length);
+        } while (randomIndex === $scope.currentQuestionIndex);
+      
+        // Update the current question index and question
+        $scope.currentQuestionIndex = randomIndex;
+        $scope.currentQuestion = $scope.questions[$scope.currentQuestionIndex];
+      
+        // Speak the selected question
+        $scope.speakQuestion($scope.currentQuestion);
+      };
+
+
+
     // Render loop
     function animate() {
       requestAnimationFrame(animate);
@@ -261,4 +279,6 @@ angular
       }
       resetLipSync();
     });
+
+
   });
