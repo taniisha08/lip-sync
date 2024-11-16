@@ -102,7 +102,22 @@ angular
       mixer,
       clock = new THREE.Clock();
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color(0xffffff);
+    // scene.background = new THREE.Color(0xffffff);
+
+    // background
+    const loader = new THREE.TextureLoader();
+loader.load(
+  'bg2.jpg', // Replace with the path to your image
+  function (texture) {
+    scene.background = texture; // Set the loaded texture as the background
+  },
+  undefined,
+  function (error) {
+    console.error('An error occurred while loading the background texture:', error);
+  }
+);
+
+
     const camera = new THREE.PerspectiveCamera(
       40,
       window.innerWidth / window.innerHeight,
@@ -118,6 +133,8 @@ angular
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(10, 10, 10).normalize();
     scene.add(ambientLight, directionalLight);
+
+
 
     // Load GLB model
     const gltfLoader = new THREE.GLTFLoader();
