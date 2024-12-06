@@ -7,8 +7,8 @@ angular
     const scene = new THREE.Scene();
     let speech;
     let blinkingInterval = null;
-    let url ="brunette.glb"; 
-// let url = "final3.glb";
+    // let url ="brunette.glb"; 
+    let url = "final2.glb";
     // Viseme mapping (same as before)
     const corresponding = {
       A: "viseme_PP", 
