@@ -832,7 +832,7 @@ angular
         return;
       }
 
-      const morphTargetSmoothing = 0.18;
+      const morphTargetSmoothing = 0.19;
 
       Object.values(corresponding).forEach((viseme) => {
         if (head.morphTargetDictionary[viseme] !== undefined) {
