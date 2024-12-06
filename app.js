@@ -6,13 +6,12 @@ angular
       clock = new THREE.Clock();
     const scene = new THREE.Scene();
     let speech;
-    let updateInterval;
     let blinkingInterval = null;
-    let url ="resources/avatars/brunette.glb"; 
-
+    let url ="brunette.glb"; 
+// let url = "final3.glb";
     // Viseme mapping (same as before)
     const corresponding = {
-      A: "viseme_PP",
+      A: "viseme_PP", 
       B: "viseme_kk",
       C: "viseme_I",
       D: "viseme_AA",
@@ -39,6 +38,7 @@ angular
       Y: "viseme_Y", // Viseme for 'y' (lips slightly spread)
       Z: "viseme_Z", // Viseme for 'z' (teeth together, lips spread)
     };
+
 
     // Lip-sync cue structure (we can define this based on known phonemes in your TTS voice)
     const lipsync = {
@@ -771,7 +771,7 @@ angular
 
     const loader = new THREE.TextureLoader();
     loader.load(
-      "resources/textures/bg2.jpg",
+      "bg2.jpg",
       (texture) => {
         console.log("Background texture loaded successfully.");
         scene.background = texture;
@@ -789,7 +789,7 @@ angular
 
     // GLB Model Loading
     const gltfLoader = new THREE.GLTFLoader();
-   launchAvatar(url);
+    launchAvatar(url);
 
     function launchAvatar(url){
         gltfLoader.load(
@@ -803,13 +803,14 @@ angular
               camera.position.set(0, 0, 1);
       
               mixer = new THREE.AnimationMixer(model);
-              setupBlinking();
+              
               gltf.animations.forEach((clip) => {
                 const action = mixer.clipAction(clip);
                 action.play();
               });
-      
+              
               animate();
+              setupBlinking();
             },
             undefined,
             (error) => {
@@ -892,6 +893,9 @@ angular
       });
     }
 
+
+    // function for model to look like a human
+  
     function setupBlinking() {
       if (blinkingInterval !== null) return; // Don't start a new interval if one is already running
 
@@ -922,7 +926,6 @@ angular
         }
       }, THREE.MathUtils.randInt(1000, 5000)); // Random interval for natural blinking
     }
-
     // Optionally clear the blinking interval when done (e.g., if model is removed from scene)
     function clearBlinking() {
       if (blinkingInterval !== null) {
@@ -931,34 +934,48 @@ angular
       }
     }
 
-    $scope.speakQuestion = function () {
-      const audioFile = "resources/audios/audio2.wav"; // Path to your audio file
 
+    
+    $scope.speakQuestion = function () {
+      const audioFile = "audio2.wav"; // Path to your audio file
+    
       const audio = new Audio(audioFile);
       console.log("Playing audio:", audioFile);
-
+    
+      // This will keep track of the animation frame loop
+      let animationFrameId;
+    
       audio.onplay = function () {
         console.log("Audio playback started.");
-        const startTime = Date.now();
-
-        updateInterval = setInterval(() => {
-          const currentTime = (Date.now() - startTime) / 1000;
+        const startTime = audio.currentTime; // Track the start time of the audio
+    
+        function update() {
+          const currentTime = audio.currentTime - startTime; // Calculate elapsed time since start
+    
+          // Call the lip-sync update function
           updateLipSync(currentTime);
-        }, 16);
+    
+          // If the audio is still playing, request the next frame
+          if (!audio.paused && !audio.ended) {
+            animationFrameId = requestAnimationFrame(update); // Recursive call to update next frame
+          }
+        }
+    
+        update(); // Start the update loop when audio starts playing
       };
-
+    
       audio.onended = function () {
         console.log("Audio playback ended.");
-        clearInterval(updateInterval);
+        cancelAnimationFrame(animationFrameId); // Stop the animation loop
         resetLipSync();
       };
-
+    
       audio.onerror = function (event) {
         console.error("Audio playback error:", event);
-        clearInterval(updateInterval);
+        cancelAnimationFrame(animationFrameId); // Stop the animation loop
         resetLipSync();
       };
-
+    
       audio.play().catch((error) => {
         console.error("Audio playback failed:", error);
         resetLipSync();
@@ -974,19 +991,21 @@ angular
     $scope.changeAvatar = function (url) {
         // Remove the existing avatar from the scene if it exists
         if (model) {
-            console.log("model changed")
+          console.log("model changed");
+          clearBlinking();
           scene.remove(model);
           model = null; // Clear the reference to the old avatar
         }
-      clearBlinking();
+ 
         launchAvatar(url);
       };
 
-    function animate() {
+    function animate() {    
       requestAnimationFrame(animate);
       if (mixer) mixer.update(clock.getDelta());
       renderer.render(scene, camera);
     }
+
     $scope.$on("$destroy", function () {
       console.log("Cleaning up resources.");
       if (speech) {
@@ -995,5 +1014,10 @@ angular
       resetLipSync();
       clearBlinking();
       renderer.dispose();
+    });
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
     });
   });
