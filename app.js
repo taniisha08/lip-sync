@@ -996,7 +996,7 @@ angular
           scene.remove(model);
           model = null; // Clear the reference to the old avatar
         }
- 
+        clearBlinking();
         launchAvatar(url);
       };
 
