@@ -133,8 +133,8 @@ angular
         n: "viseme_T",
     
         // O/o
-        O: "viseme_O", // Rounded lips
-        o: "viseme_O",
+        O: "viseme_OO", // Rounded lips
+        o: "viseme_OO",
     
         // P/p
         P: "viseme_PP", // Lips pressed together
@@ -220,20 +220,37 @@ angular
         iy: "viseme_ee", // Close front unrounded vowel
         ow: "viseme_O", // Rounded mid-back vowel
         uw: "viseme_U", // Rounded back vowel
-      
-        "d͡ʒ": "viseme_ch", // Voiced postalveolar affricate
-        "ð": "viseme_TH", // Voiced dental fricative
-        h: "viseme_TH", // Voiceless glottal fricative
-        j: "viseme_ee", // Palatal approximant
-        l: "viseme_L", // Alveolar lateral approximant
-        "ŋ": "viseme_nn", // Velar nasal
-        "ɹ": "viseme_R", // Alveolar approximant
-        "ʃ": "viseme_SS", // Voiceless postalveolar fricative
-        "t͡ʃ": "viseme_ch", // Voiceless postalveolar affricate
-        "Θ": "viseme_TH", // Voiceless dental fricative
+
+        d͡ʒ : "viseme_ch", // Voiced postalveolar affricate
+        t͡ʃ: "viseme_ch",
+        ʃ : "viseme_sh",
+		ʒ : "viseme_sh",
+		ð : "viseme_TH",
+		Θ : "viseme_TH",
+        ŋ : "viseme_k",
+		ɹ : "viseme_R",
+        aɪ: "viseme_aa",
+		aʊ: "viseme_aa",
+		ɔɪ: "viseme_aa",
+		eɪ: "viseme_ee",
+		oʊ: "viseme_oo",
+        ə: "viseme_aw",
+        ɚ : "viseme_R",
+        æ: "viseme_aa",
+        ɑ : "viseme_aa",
+        ɛ : "viseme_ee",
+        ɪ : "viseme_ee",
+        ʌ : "viseme_aw",
+
+
+        ð: "viseme_TH", // Voiced dental fricative
+        ŋ: "viseme_nn", // Velar nasal
+        ɹ: "viseme_R", // Alveolar approximant
+        ʃ: "viseme_SS", // Voiceless postalveolar fricative
+        t͡ʃ: "viseme_ch", // Voiceless postalveolar affricate
+        Θ: "viseme_TH", // Voiceless dental fricative
         w: "viseme_W", // Labial-velar approximant
-        "ʒ": "viseme_SS", // Voiced postalveolar fricative
-        "@": "viseme_NEUTRAL"
+        ʒ: "viseme_SS", // Voiced postalveolar fricativ
       };
 
     // const corresponding = {
@@ -1547,6 +1564,8 @@ angular
                 }
             ]
     }
+
+   
 
 
     // const lipsync = {
