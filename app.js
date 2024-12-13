@@ -110,6 +110,8 @@ angular
         // Y/y
         Y: "viseme_Y", // Wide mouth, lips spread
         y: "viseme_Y",
+
+        sil : "viseme_X",
     
         // Z/z
         Z: "viseme_Z", // Teeth together, airflow through
