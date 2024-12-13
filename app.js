@@ -75,33 +75,103 @@ angular
     //   Z: "viseme_Z", // Viseme for 'z' (teeth together, lips spread)
     // };
 
+    // const corresponding = {
+    //       // Consonants
+    // b: "viseme_PP", // Lips pressed together
+    // B: "viseme_PP",
+    // d: "viseme_T", // Tongue behind teeth
+    // D: "viseme_T",
+    // dʒ: "viseme_S", // Teeth close together
+    // ð: "viseme_T", // Tongue between teeth
+    // f: "viseme_F", // Teeth on lip
+    // F: "viseme_F",
+    // g: "viseme_K", // Back of tongue raised
+    // G: "viseme_K",
+    // h: "viseme_K", // Open mouth, breathy
+    // H: "viseme_K",
+    // j: "viseme_I", // Lips spread, slight protrusion
+    // J: "viseme_I",
+    // k: "viseme_K", // Back of tongue raised
+    // K: "viseme_K",
+    // l: "viseme_T", // Tongue touches alveolar ridge
+    // ɫ: "viseme_T",
+    // m: "viseme_PP", // Lips pressed together
+    // M: "viseme_PP",
+    // m̩: "viseme_PP", // Syllabic bilabial nasal
+    // n: "viseme_T", // Tongue touches alveolar ridge
+    // n̩: "viseme_T", // Syllabic alveolar nasal
+    // ŋ: "viseme_K", // Back of tongue touches soft palate
+    // ŋ̩: "viseme_K", // Syllabic nasal
+    // p: "viseme_PP", // Lips pressed together
+    // P: "viseme_PP",
+    // ɹ: "viseme_R", // Lips rounded, tongue curled
+    // s: "viseme_S", // Teeth close together
+    // ʃ: "viseme_S", // Teeth close, lips slightly rounded
+    // t: "viseme_T", // Tongue touches alveolar ridge
+    // tʃ: "viseme_S", // Teeth close, lips slightly rounded
+    // θ: "viseme_T", // Tongue between teeth
+    // v: "viseme_F", // Teeth on lip
+    // V: "viseme_F",
+    // w: "viseme_U", // Rounded lips, slight protrusion
+    // z: "viseme_S", // Teeth close together
+    // ʒ: "viseme_S", // Teeth close, lips slightly rounded
+
+    // // Vowels
+    // ə: "viseme_@", // Mid central vowel
+    // æ: "viseme_AA", // Near-open front unrounded
+    // aɪ: "viseme_AA", // Diphthong
+    // aʊ: "viseme_AA", // Diphthong
+    // ɑː: "viseme_AA", // Long open-back unrounded
+    // eɪ: "viseme_E", // Face
+    // ɛ: "viseme_E", // Open-mid front unrounded
+    // eə: "viseme_E", // Diphthong
+    // i: "viseme_I", // Long close front unrounded
+    // ɪ: "viseme_I", // Near-close near-front
+    // ɪə: "viseme_I", // Diphthong
+    // ɔː: "viseme_O", // Long open-mid back rounded
+    // ɔɪ: "viseme_O", // Diphthong
+    // ɒ: "viseme_O", // Open back rounded
+    // oʊ: "viseme_O", // Rounded lips
+    // uː: "viseme_U", // Long close back rounded
+    // ʊ: "viseme_U", // Near-close near-back
+    // ʊə: "viseme_U", // Diphthong
+    // ʌ: "viseme_E", // Open-mid back unrounded
+    // ɜː: "viseme_E", // Long open-mid central unrounded
+    // ɛə: "viseme_E", // Square diphthong
+
+    // // Additional symbols
+    // ".": "viseme_boundary", // Syllable boundary
+    // '"': "viseme_primary_stress", // Primary stress
+    // "%": "viseme_secondary_stress", // Secondary stress
+    // }
+
     const corresponding = {
 
-        A: "viseme_AA", // Open jaw, wide mouth
-        a: "viseme_AA",
+        A: "viseme_PP", // Open jaw, wide mouth
+        a: "viseme_PP",
     
         // B/b
-        B: "viseme_PP", // Lips pressed together
-        b: "viseme_PP",
+        B: "viseme_kk", // Lips pressed together
+        b: "viseme_kk",
     
         // C/c
-        C: "viseme_S", // Teeth close together
-        c: "viseme_S",
+        C: "viseme_I", // Teeth close together
+        c: "viseme_I",
     
         // D/d
-        D: "viseme_T", // Tongue touches the alveolar ridge
+        D: "viseme_AA", // Tongue touches the alveolar ridge
         d: "viseme_T",
     
         // E/e
-        E: "viseme_ee", // Wide mouth, lips spread
-        e: "viseme_ee",
+        E: "viseme_O", // Wide mouth, lips spread
+        e: "viseme_O",
     
         // F/f
-        F: "viseme_FF", // Teeth on lower lip
+        F: "viseme_U", // Teeth on lower lip
         f: "viseme_FF",
     
         // G/g
-        G: "viseme_kk", // Back of tongue against velum
+        G: "viseme_FF", // Back of tongue against velum
         g: "viseme_kk",
     
         // H/h
@@ -125,28 +195,28 @@ angular
         l: "viseme_L",
     
         // M/m
-        M: "viseme_PP", // Lips pressed together
-        m: "viseme_PP",
+        M: "viseme_M", // Lips pressed together
+        m: "viseme_M",
     
         // N/n
-        N: "viseme_T", // Tongue touches the alveolar ridge
-        n: "viseme_T",
+        N: "viseme_N", // Tongue touches the alveolar ridge
+        n: "viseme_N",
     
         // O/o
-        O: "viseme_OO", // Rounded lips
-        o: "viseme_OO",
+        O: "viseme_O", // Rounded lips
+        o: "viseme_O",
     
         // P/p
-        P: "viseme_PP", // Lips pressed together
-        p: "viseme_PP",
+        P: "viseme_O", // Lips pressed together
+        p: "viseme_O",
     
         // Q/q
-        Q: "viseme_PP", // Similar to P, lips pressed together
-        q: "viseme_PP",
+        Q: "viseme_Q", // Similar to P, lips pressed together
+        q: "viseme_Q",
     
         // R/r
-        R: "viseme_RR", // Tongue curled slightly back
-        r: "viseme_RR",
+        R: "viseme_R", // Tongue curled slightly back
+        r: "viseme_R",
     
         // S/s
         S: "viseme_S", // Teeth together, airflow through
@@ -161,46 +231,46 @@ angular
         u: "viseme_U",
     
         // V/v
-        V: "viseme_FF", // Teeth on lower lip
-        v: "viseme_FF",
+        V: "viseme_V", // Teeth on lower lip
+        v: "viseme_V",
     
         // W/w
-        W: "viseme_U", // Rounded lips
-        w: "viseme_U",
+        W: "viseme_W", // Rounded lips
+        w: "viseme_W",
     
         // X/x
-        X: "viseme_K", // Back of tongue against velum
-        x: "viseme_K",
+        X: "viseme_X", // Back of tongue against velum
+        x: "viseme_X",
     
         // Y/y
-        Y: "viseme_ee", // Wide mouth, lips spread
-        y: "viseme_ee",
+        Y: "viseme_Y", // Wide mouth, lips spread
+        y: "viseme_Y",
     
         // Z/z
-        Z: "viseme_S", // Teeth together, airflow through
-        z: "viseme_S",
-        p: "viseme_PP", // Voiceless bilabial plosive
-        b: "viseme_PP", // Voiced bilabial plosive
-        m: "viseme_M", // Bilabial nasal
-        a : "viseme_AA",
-        f: "viseme_U", // Voiceless labiodental fricative
-        v: "viseme_V", // Voiced labiodental fricative
+        Z: "viseme_Z", // Teeth together, airflow through
+        z: "viseme_Z",
+        // p: "viseme_PP", // Voiceless bilabial plosive
+        // b: "viseme_PP", // Voiced bilabial plosive
+        // m: "viseme_M", // Bilabial nasal
+        // a : "viseme_AA",
+        // f: "viseme_U", // Voiceless labiodental fricative
+        // v: "viseme_V", // Voiced labiodental fricative
       
-        t: "viseme_T", // Voiceless alveolar plosive
-        d: "viseme_T", // Voiced alveolar plosive
-        s: "viseme_S", // Voiceless alveolar fricative
-        z: "viseme_S", // Voiced alveolar fricative
+        // t: "viseme_T", // Voiceless alveolar plosive
+        // d: "viseme_T", // Voiced alveolar plosive
+        // s: "viseme_S", // Voiceless alveolar fricative
+        // z: "viseme_S", // Voiced alveolar fricative
         th: "viseme_TH", // Voiceless dental fricative
         dh: "viseme_TH", // Voiced dental fricative
-        n: "viseme_N", // Alveolar nasal
-        l: "viseme_L", // Alveolar lateral approximant
+        // n: "viseme_N", // Alveolar nasal
+        // l: "viseme_L", // Alveolar lateral approximant
       
-        k: "viseme_kk", // Voiceless velar plosive
-        g: "viseme_kk", // Voiced velar plosive
+        // k: "viseme_kk", // Voiceless velar plosive
+        // g: "viseme_kk", // Voiced velar plosive
         ng: "viseme_nn", // Velar nasal
       
         ch: "viseme_ch", // Voiceless postalveolar affricate
-        j: "viseme_ch", // Voiced postalveolar affricate
+        // j: "viseme_ch", // Voiced postalveolar affricate
         sh: "viseme_SS", // Voiceless postalveolar fricative
         zh: "viseme_SS", // Voiced postalveolar fricative
       
@@ -233,7 +303,7 @@ angular
 		aʊ: "viseme_aa",
 		ɔɪ: "viseme_aa",
 		eɪ: "viseme_ee",
-		oʊ: "viseme_oo",
+		oʊ: "viseme_O",
         ə: "viseme_aw",
         ɚ : "viseme_R",
         æ: "viseme_aa",
@@ -253,67 +323,8 @@ angular
         ʒ: "viseme_SS", // Voiced postalveolar fricativ
       };
 
-    // const corresponding = {
-    //     p: "p",
-    //     b: "p",
-    //     m: "p",
-    //     f: "f",
-    //     v: "f",
-    //     t: "t",
-    //     d: "t",
-    //     s: "t",
-    //     z: "t",
-    //     th: "t",
-    //     dh: "t",
-    //     n: "t",
-    //     l: "t",
-    //     k: "k",
-    //     g: "k",
-    //     ng: "k",
-    //     ch: "ch",
-    //     j: "ch",
-    //     sh: "sh",
-    //     zh: "sh",
-    //     aw: "aw",
-    //     oy: "aw",
-    //     er: "aw",
-    //     ah: "aw",
-    //     uh: "aw",
-    //     aa: "aa",
-    //     ae: "aa",
-    //     ao: "aa",
-    //     ay: "aa",
-    //     eh: "aa",
-    //     ey: "aa",
-    //     ih: "aa",
-    //     iy: "aa",
-    //     ow: "aa",
-    //     uw: "aa",
-    //     b: "P",  // Voiced bilabial plosive
-    //     d: "T",  // Voiced alveolar plosive
-    //     "d͡ʒ": "S",  // Voiced postalveolar affricate
-    //     "ð": "T",  // Voiced dental fricative
-    //     f: "F",  // Voiceless labiodental fricative
-    //     g: "K",  // Voiced velar plosive
-    //     h: "K",  // Voiceless glottal fricative
-    //     j: "I",  // Palatal approximant
-    //     k: "K",  // Voiceless velar plosive
-    //     l: "T",  // Alveolar lateral approximant
-    //     m: "P",  // Bilabial nasal
-    //     n: "T",  // Alveolar nasal
-    //     "ŋ": "K",  // Velar nasal
-    //     p: "P",  // Voiceless bilabial plosive
-    //     "ɹ": "R",  // Alveolar approximant
-    //     s: "S",  // Voiceless alveolar fricative
-    //     "ʃ": "S",  // Voiceless postalveolar fricative
-    //     t: "T",  // Voiceless alveolar plosive
-    //     "t͡ʃ": "S",  // Voiceless postalveolar affricate
-    //     "Θ": "T",  // Voiceless dental fricative
-    //     v: "F",  // Voiced labiodental fricative
-    //     w: "U",  // Labial-velar approximant
-    //     z: "S",  // Voiced alveolar fricative
-    //     "ʒ": "S",  // Voiced postalveolar fricative
-    // };
+  
+
 
     const lipsync = {
             mouthCues: [
