@@ -8,7 +8,7 @@ angular
     let speech;
     let blinkingInterval = null;
     // let url ="brunette.glb";
-    let url = "final2.glb";
+    let url = "av.glb";
 
     const corresponding = {
       A: "viseme_PP", // Open jaw, wide mouth
